@@ -1,0 +1,15 @@
+<div class="trabajadores-container">
+  <mat-card *ngFor="let t of trabajadores" class="trabajador-card">
+    <mat-card-header>
+      <mat-card-title>{{ t.nombre }}</mat-card-title>
+      <mat-card-subtitle>{{ t.rol }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Correo:</strong> {{ t.correo }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">Editar</button>
+      <button mat-button color="warn">Eliminar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,78 @@
+<mat-toolbar color="primary" class="navbar" role="navigation" aria-label="Main navigation">
+  <!-- izquierdo: botón hamburger + logo -->
+  <div class="left-group">
+    <button mat-icon-button aria-label="Open menu" (click)="onToggle()" class="hamburger">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="logo" routerLink="/">
+      <img src="" alt="" class="logo-avatar" aria-hidden="true">
+      <span class="brand">H&S Support</span>
+    </div>
+  </div>
+
+  <!-- centro: buscador -->
+  <div class="center-group">
+    <form (submit)="onSearchSubmit()" class="search-form" role="search" aria-label="Search form">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Buscar repuestos, categorías..." [(ngModel)]="searchQuery" name="search" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!-- iconos principales -->
+  <div class="middle-icons">
+    <button mat-icon-button matTooltip="Inicio" aria-label="Inicio">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Explorar" aria-label="Explorar">
+      <mat-icon>explore</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Marketplace" aria-label="Marketplace">
+      <mat-icon>storefront</mat-icon>
+    </button>
+  </div>
+
+  <!-- derecho: acciones usuario -->
+  <div class="right-group">
+    <button mat-icon-button aria-label="Mensajes">
+      <span matBadge="{{unreadMessages}}" matBadgeColor="warn" matBadgeOverlap="false">
+        <mat-icon>chat</mat-icon>
+      </span>
+    </button>
+
+    <button mat-icon-button aria-label="Notificaciones">
+      <span matBadge="{{unreadNotifications}}" matBadgeColor="warn" matBadgeOverlap="false">
+        <mat-icon>notifications</mat-icon>
+      </span>
+    </button>
+
+    <button mat-raised-button color="accent" class="create-btn" aria-label="Crear">
+      <mat-icon>add</mat-icon>
+      <span class="create-text">Crear</span>
+    </button>
+
+    <!-- Avatar + Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" class="avatar-btn" aria-label="Perfil">
+      <div class="avatar-circle">JD</div>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Mi perfil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Configuración</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

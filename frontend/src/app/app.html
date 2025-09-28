@@ -1,0 +1,20 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav para el menú lateral -->
+  <mat-sidenav #drawer class="sidenav" mode="over">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/tablaexpandible" (click)="drawer.close()">Inventario</a>
+      <a mat-list-item routerLink="/trabajadores" (click)="drawer.close()">Trabajadores</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Contenido principal -->
+  <mat-sidenav-content>
+    <!-- Barra de navegación de estilo Facebook -->
+    <app-navbar (toggle)="drawer.toggle()"></app-navbar>
+
+    <!-- Aquí se carga el contenido según la ruta activa -->
+    <div class="contenido">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
